@@ -1,39 +1,27 @@
-class Drop{
-    constructor(x, y, r){
+class createDrop{
+    constructor(x, y){
         var option = {
-        'restitution' : 0.2,
-        'friction' : 1,
-        'density' : 1.0
+        'restitution' : 0.1,
+        'friction' : 0.001,
         }
 
-        this.body = Bodies.circle(x, y, r, r, option);
-        this.x = x;
-        this.y = y;
-        this.r = r;
+        this.rain = Bodies.circle(x, y, 5, option);
+        this.r = 5;
 
-        World.add(world, this.body);
+        World.add(world, this.rain);
 
     }
-    display(){
+    updateY(){
+        if(this.rain.position.y > height){
 
-        var pos = this.body.position;
+            Matter.Body.setPosition(this.rain, {x:random(0, 400), y:random(0, 400)});
+        }
+    }
 
-        push();
-        translate(pos.x, pos.y);
-
-         noStroke();
+    showDrop(){
          fill("blue");
 
-         ellipseMode(RADIUS);
-         ellipse(0, 0, this.r, this.r);
-
-         if(this.body.position.y > height){
-
-            Matter.Body.setPosition(this.body, {x:random(0, 400), y:random(0, 400)});
-        }
-    
-         pop();
+         ellipseMode(CENTER);
+         ellipse(this.rain.position.x, this.rain.position.y, this.r, this.r);
     }
-
-    
 }
