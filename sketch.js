@@ -4,7 +4,7 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var thunder, thunder1, thunder2, thunder3, thunder4;
-
+var bat, bat_Animation;
 var engine, world;
 var drops = [];
 var rand;
@@ -18,6 +18,11 @@ function preload(){
     thunder2 = loadImage("images/thunderbolt/2.png");
     thunder3 = loadImage("images/thunderbolt/3.png");
     thunder4 = loadImage("images/thunderbolt/4.png");
+
+    bat_Animation = loadAnimation("images/bat/bat1.png", "images/bat/bat2.png", "images/bat/bat3.png",
+    "images/bat/bat4.png", "images/bat/bat5.png", "images/bat/bat6.png",
+    "images/bat/bat7.png", "images/bat/bat8.png", "images/bat/bat9.png",
+    "images/bat/bat10.png", "images/bat/bat11.png", "images/bat/bat12.png");
 }
 
 function setup(){
@@ -61,6 +66,12 @@ function draw(){
         }
 
         thunder.scale = random(0.3, 0.6);
+    }
+
+    
+    if(frameCount > 60){
+        bat = createSprite(50, 100, 50, 50);
+        bat.addAnimation(bat_Animation, "bat");
     }
 
 
