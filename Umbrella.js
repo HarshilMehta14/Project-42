@@ -17,9 +17,9 @@ class Umbrella{
         imageMode(CENTER);
         image(this.image, p.x, p.y+20, 300, 300);
 
-        if(frameCount > 200){
+        if(frameCount > 300){
             this.image = loadImage("images/bat/Bestman-01.png");
-            image(this.image, p.x, p.y+20, 300, 300);
+            image(this.image, p.x, p.y, 200, 100);
         }
     }
 }

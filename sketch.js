@@ -68,10 +68,13 @@ function draw(){
         thunder.scale = random(0.3, 0.6);
     }
 
-    
-    if(frameCount > 60){
-        bat = createSprite(50, 100, 50, 50);
-        bat.addAnimation(bat_Animation, "bat");
+    //for(frameCount )
+    if(frameCount % 100 === 0){
+        bat = createSprite(0, 100, 70, 70);
+        bat.addAnimation("bat",bat_Animation);
+        bat.scale = 0.5;
+        bat.velocityX = Math.round(random(0,5));
+        bat.velocityY = Math.round(random(0,2));
     }
 
 
